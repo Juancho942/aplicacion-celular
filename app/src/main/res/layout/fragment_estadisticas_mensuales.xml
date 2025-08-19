@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brand_light_gray"
+    tools:context=".ui.mensual.EstadisticasMensualesFragment">
+
+    <TextView
+        android:id="@+id/text_view_spinner_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Selecciona un mes para ver las estadísticas"
+        android:textColor="@color/brand_text"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner_meses"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:drawable/btn_dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_view_spinner_label" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view_datos_mensuales"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner_meses">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:stretchColumns="1">
+
+            <TableRow>
+                <TextView
+                    android:text="Ventas Totales:"
+                    android:textColor="@color/brand_text_light"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/text_view_ventas_mensuales"
+                    android:gravity="end"
+                    android:text="--.--"
+                    android:textColor="@color/brand_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="8dp">
+                <TextView
+                    android:text="Gastos Totales:"
+                    android:textColor="@color/brand_text_light"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/text_view_gastos_mensuales"
+                    android:gravity="end"
+                    android:text="--.--"
+                    android:textColor="@color/brand_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="12dp"
+                android:paddingTop="12dp"
+                android:background="@drawable/border_top"> <TextView
+                android:text="Utilidad:"
+                android:textColor="@color/brand_dark_3"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/text_view_utilidad_mensual"
+                    android:gravity="end"
+                    android:text="--.--"
+                    android:textColor="@color/brand_dark_3"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </TableRow>
+        </TableLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/bar_chart_mensual"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_view_datos_mensuales" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

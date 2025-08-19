@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brand_light_gray"
+    tools:context=".ui.diario.EstadisticasDiariasFragment">
+
+    <TextView
+        android:id="@+id/text_view_fecha_seleccionada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Cargando fecha..."
+        android:textColor="@color/brand_text"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_seleccionar_fecha_diaria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/brand_dark_2"
+        android:text="Cambiar Fecha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_view_fecha_seleccionada" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view_datos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_seleccionar_fecha_diaria">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:stretchColumns="1">
+
+            <TableRow>
+                <TextView
+                    android:text="Compras:"
+                    android:textColor="@color/brand_text_light"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/text_view_compras"
+                    android:gravity="end"
+                    android:text="--.--"
+                    android:textColor="@color/brand_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="8dp">
+                <TextView
+                    android:text="Gastos:"
+                    android:textColor="@color/brand_text_light"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/text_view_gastos"
+                    android:gravity="end"
+                    android:text="--.--"
+                    android:textColor="@color/brand_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="8dp">
+                <TextView
+                    android:text="Ventas:"
+                    android:textColor="@color/brand_text_light"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/text_view_ventas"
+                    android:gravity="end"
+                    android:text="--.--"
+                    android:textColor="@color/brand_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </TableRow>
+        </TableLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/bar_chart_diario"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_view_datos" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

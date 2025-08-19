@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "759975464136",
+    "firebase_url": "https://pagina-web-6fb65-default-rtdb.firebaseio.com",
+    "project_id": "pagina-web-6fb65",
+    "storage_bucket": "pagina-web-6fb65.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759975464136:android:7aa26d08cc49690c6ce9fd",
+        "android_client_info": {
+          "package_name": "com.example.aplicacionfrancelyaccesorios"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZRkr7dFfCyCrDJXrKKk5GT8npix6uLIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

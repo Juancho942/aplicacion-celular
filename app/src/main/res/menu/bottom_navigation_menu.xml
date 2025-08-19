@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_cuadre_caja"
+        android:icon="@drawable/ic_cash_register"
+        android:title="Cuadre de Caja" />
+    <item
+        android:id="@+id/nav_stats_diarias"
+        android:icon="@drawable/ic_daily_stats"
+        android:title="Estadísticas Diarias" />
+    <item
+        android:id="@+id/nav_stats_mensuales"
+        android:icon="@drawable/ic_monthly_stats"
+        android:title="Estadísticas Mensuales" />
+</menu>

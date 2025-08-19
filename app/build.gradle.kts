@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -56,4 +58,15 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
+
+    // Añade la dependencia para Realtime Database sin especificar la versión
+    implementation("com.google.firebase:firebase-database-ktx")
+
+    // Gráficos
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    // Componentes de Material Design
+    implementation("com.google.android.material:material:1.12.0")
 }

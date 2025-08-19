@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.Aplicacionfrancelyaccesorios" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Aplicacionfrancelyaccesorios" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorPrimaryVariant">@color/brand_dark_1</item>
+        <item name="colorOnPrimary">@color/brand_white</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
 </resources>

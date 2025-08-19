@@ -1,47 +1,41 @@
 package com.example.aplicacionfrancelyaccesorios
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.aplicacionfrancelyaccesorios.ui.theme.AplicacionfrancelyaccesoriosTheme
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.aplicacionfrancelyaccesorios.ui.cuadre.CuadreCajaFragment
+import com.example.aplicacionfrancelyaccesorios.ui.diario.EstadisticasDiariasFragment
+import com.example.aplicacionfrancelyaccesorios.ui.mensual.EstadisticasMensualesFragment
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            AplicacionfrancelyaccesoriosTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
+        setContentView(R.layout.activity_main)
+
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNav.setOnNavigationItemSelectedListener(navListener)
+
+        // Cargar el fragmento inicial
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container,
+            CuadreCajaFragment()).commit()
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+    private val navListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        var selectedFragment: Fragment? = null
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    AplicacionfrancelyaccesoriosTheme {
-        Greeting("Android")
+        when (item.itemId) {
+            R.id.nav_cuadre_caja -> selectedFragment = CuadreCajaFragment()
+            R.id.nav_stats_diarias -> selectedFragment = EstadisticasDiariasFragment()
+            R.id.nav_stats_mensuales -> selectedFragment = EstadisticasMensualesFragment()
+        }
+
+        if (selectedFragment != null) {
+            supportFragmentManager.beginTransaction().replace(R.id.fragment_container,
+                selectedFragment).commit()
+        }
+
+        true
     }
 }
